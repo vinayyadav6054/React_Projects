@@ -10,14 +10,14 @@ const App = () => {
     console.log(tasks);
   }
   
-  const deleteTask = () => {
-    setTasks
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index))
   }
   return (
     <div className='w-full h-screen bg-violet-900 flex flex-col items-center justify-center'>
       <h1 className='text-4xl font-bold mb-4'>To Do App</h1>
       <TodoInput addTask={addTask} />
-      <TodoList tasks={tasks} />
+      <TodoList tasks={tasks} deleteTask={deleteTask} />
     </div>
   )
 }
