@@ -13,3 +13,7 @@ body{
 #tasklist::-webkit-scrollbar{
   display: none;
 }
+
+#AdminDashboard::-webkit-scrollbar{
+  display: none;
+}
