@@ -13,17 +13,17 @@ const App = () => {
     // },)
 
     const [user, setUser] = useState(null);
+    const authData = useContext(AuthContext)
+    //console.log(authData.employees);
 
     const handleLogin = (email, password) => {
         if (email == 'admin@me.com' && password =='123'){
            // console.log('Admin Logged In');
            setUser('admin')
-           console.log(user);
            
-        }else if(email =='user@me.com' && password == '123'){
+           
+        }else if(authData && authData.employees.find((e) => email == e.email && password == e.password)){
             setUser('employee')
-            console.log(user);
-            
         }
         else{
             alert('Invalid Credentials');
@@ -32,8 +32,7 @@ const App = () => {
 
     //handleLogin('admin@me.com','123')
 
-    const data = useContext(AuthContext)
-    console.log(data);
+   
 
     return(
         <>
